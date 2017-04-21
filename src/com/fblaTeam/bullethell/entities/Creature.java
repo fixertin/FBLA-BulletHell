@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.entities;
+package com.fblaTeam.bullethell.entities;
 
 import java.awt.Rectangle;
 
-import com.alexnaustin.bullethell.creatures.Entity;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.creatures.Entity;
+import com.fblaTeam.bullethell.main.Handler;
 
 public abstract class Creature extends Entity{
 	

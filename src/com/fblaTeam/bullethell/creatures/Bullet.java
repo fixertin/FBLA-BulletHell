@@ -1,14 +1,15 @@
-package com.alexnaustin.bullethell.creatures;
+package com.fblaTeam.bullethell.creatures;
 
 import java.awt.Rectangle;
 
-import com.alexnaustin.bullethell.entities.Creature;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.entities.Creature;
+import com.fblaTeam.bullethell.main.Handler;
 
 public abstract class Bullet extends Entity{
 	protected double angle;
 	protected Creature shooter;
 	protected double speed;
+	public static double DEFAULT_SPEED = 5;
 	protected Rectangle hitbox = new Rectangle();
 	protected boolean isDestructable;
 	

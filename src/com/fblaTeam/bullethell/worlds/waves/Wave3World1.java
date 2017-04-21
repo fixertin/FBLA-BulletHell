@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.worlds.waves;
+package com.fblaTeam.bullethell.worlds.waves;
 
-import com.alexnaustin.bullethell.entities.enemies.BasicTestEnemy;
-import com.alexnaustin.bullethell.entities.enemies.SmallEnemyBlue;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.worlds.World;
+import com.fblaTeam.bullethell.entities.enemies.BasicTestEnemy;
+import com.fblaTeam.bullethell.entities.enemies.SmallEnemyBlue;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.worlds.World;
 
 public class Wave3World1 extends Wave{
 
@@ -21,7 +21,7 @@ public class Wave3World1 extends Wave{
 	@Override
 	public void addCommands() {
 		getEnemy(0).addMovement(45, 90);
-		getEnemy(0).addShootFlurry(.1, 20);
+		getEnemy(0).addShootArcFlurry(.1, 20, 0, 180);
 	}
 
 }

@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.AI.bulletPatterns;
+package com.fblaTeam.bullethell.AI.bulletPatterns;
 
-import com.alexnaustin.bullethell.creatures.BasicBullet;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.entities.Player;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.creatures.BasicBullet;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.entities.Player;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class ShootAtPlayerPattern extends Pattern{
 	private double playerx, playery;

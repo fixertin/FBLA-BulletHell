@@ -1,13 +1,13 @@
-package com.alexnaustin.bullethell.worlds;
+package com.fblaTeam.bullethell.worlds;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import com.alexnaustin.bullethell.creatures.Bullet;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.entities.Player;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.worlds.waves.Wave;
+import com.fblaTeam.bullethell.creatures.Bullet;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.entities.Player;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.worlds.waves.Wave;
 
 
 public abstract class World {
@@ -31,6 +31,46 @@ public abstract class World {
 	public abstract void tick();
 	public abstract void render(Graphics g);
 	
+	//cleanup
+	public void tickBullets(){
+		for(int i=0; i<bullets.size(); i++){
+			bullets.get(i).tick();
+			if(bullets.get(i).isAtEdge())
+				bullets.remove(i);
+		}
+	}
+	public void tickEnemies(){
+		for(int i=0; i<enemies.size(); i++){
+			if(playerLives > 0){
+				for(int ii=0; ii<bullets.size(); ii++){
+					if(bullets.get(ii).getHitbox().intersects(enemies.get(i).getHitbox()) && (bullets.get(ii).getShooter() instanceof Player) && !enemies.get(i).isDead()){
+						enemies.get(i).setHealth(enemies.get(i).getHealth() - 1);
+						bullets.remove(ii);
+						if(enemies.get(i).getHealth() <= 0){
+							enemies.get(i).setDead(true);
+							playerScore += enemies.get(i).getScoreReward();
+						}
+					}
+					if(ii<bullets.size() && bullets.get(ii).getHitbox().intersects(p.getHitbox()) && (bullets.get(ii).getShooter() instanceof Enemy) && !p.isInvincible){
+						p.isDead = true;
+						bullets.remove(ii);
+						if(playerLives > 0){
+							playerLives -= 1;
+						}
+					}
+				}
+				
+				if(enemies.get(i).isRemoved())
+					enemies.remove(i);
+				else
+					enemies.get(i).tick();
+			} else if(!enemies.get(i).isRemoved() && enemies.get(i).isDead())
+				enemies.get(i).tick();
+			else if(enemies.get(i).isRemoved())
+				enemies.remove(i);
+			
+		}
+	}
 
 	public String getName(){
 		return worldName;

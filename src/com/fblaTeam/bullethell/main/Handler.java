@@ -1,10 +1,10 @@
-package com.alexnaustin.bullethell.main;
+package com.fblaTeam.bullethell.main;
 
-import com.alexnaustin.bullethell.GFX.GameCamera;
-import com.alexnaustin.bullethell.input.KeyManager;
-import com.alexnaustin.bullethell.states.GameState;
-import com.alexnaustin.bullethell.states.MenuState;
-import com.alexnaustin.bullethell.worlds.World;
+import com.fblaTeam.bullethell.GFX.GameCamera;
+import com.fblaTeam.bullethell.input.KeyManager;
+import com.fblaTeam.bullethell.states.GameState;
+import com.fblaTeam.bullethell.states.MenuState;
+import com.fblaTeam.bullethell.worlds.World;
 
 public class Handler {
 	private Game game;

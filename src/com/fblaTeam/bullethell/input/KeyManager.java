@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.input;
+package com.fblaTeam.bullethell.input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import com.alexnaustin.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.clock.Timer;
 
 public class KeyManager implements KeyListener{
 	public boolean[] keys, justPressed, cantPress;

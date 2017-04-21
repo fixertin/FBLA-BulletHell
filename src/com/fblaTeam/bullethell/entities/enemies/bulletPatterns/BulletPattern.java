@@ -1,8 +1,8 @@
-package com.alexnaustin.bullethell.entities.enemies.bulletPatterns;
+package com.fblaTeam.bullethell.entities.enemies.bulletPatterns;
 
 import java.util.ArrayList;
 
-import com.alexnaustin.bullethell.creatures.Bullet;
+import com.fblaTeam.bullethell.creatures.Bullet;
 
 public abstract class BulletPattern {
 	protected ArrayList<Bullet> bullets = new ArrayList<Bullet>();

@@ -1,21 +1,23 @@
-package com.alexnaustin.bullethell.entities;
+package com.fblaTeam.bullethell.entities;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-import com.alexnaustin.bullethell.AI.AI;
-import com.alexnaustin.bullethell.AI.InfinShootStraight;
-import com.alexnaustin.bullethell.AI.MoveArc;
-import com.alexnaustin.bullethell.AI.MoveTo;
-import com.alexnaustin.bullethell.AI.MoveToEdge;
-import com.alexnaustin.bullethell.AI.ShootArc;
-import com.alexnaustin.bullethell.AI.ShootAtPlayer;
-import com.alexnaustin.bullethell.AI.ShootCircle;
-import com.alexnaustin.bullethell.AI.ShootFlurry;
-import com.alexnaustin.bullethell.AI.ShootShotgun;
-import com.alexnaustin.bullethell.AI.Wait;
-import com.alexnaustin.bullethell.clock.Timer;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.AI.AI;
+import com.fblaTeam.bullethell.AI.InfinShootStraight;
+import com.fblaTeam.bullethell.AI.MoveArc;
+import com.fblaTeam.bullethell.AI.MoveTo;
+import com.fblaTeam.bullethell.AI.MoveToEdge;
+import com.fblaTeam.bullethell.AI.ShootAndMove;
+import com.fblaTeam.bullethell.AI.ShootArc;
+import com.fblaTeam.bullethell.AI.ShootArcFlurry;
+import com.fblaTeam.bullethell.AI.ShootAtPlayer;
+import com.fblaTeam.bullethell.AI.ShootCircle;
+import com.fblaTeam.bullethell.AI.ShootFlurry;
+import com.fblaTeam.bullethell.AI.ShootShotgun;
+import com.fblaTeam.bullethell.AI.Wait;
+import com.fblaTeam.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.main.Handler;
 
 public abstract class Enemy extends Creature{
 	protected ArrayList<AI> movements = new ArrayList<AI>();
@@ -90,6 +92,18 @@ public abstract class Enemy extends Creature{
 	}
 	public void addShootArc(double shotgap, double startAngle, double arcSize){
 		movements.add(new ShootArc(handler, this, shotgap, startAngle, arcSize));
+	}
+	public void addShootArc(double shotgap, double startAngle, double arcSize, double speed){
+		movements.add(new ShootArc(handler, this, shotgap, startAngle, arcSize, speed));
+	}
+	public void addShootArcFlurry(double shotGap, double length, int arcStart, int arcLength){
+		movements.add(new ShootArcFlurry(handler, this, shotGap, length, arcStart, arcLength));
+	}
+	public void shootAndMove(double distance, double angle, double shootAngle, double frameGap){
+		movements.add(new ShootAndMove(handler, distance, this, angle, shootAngle, frameGap));
+	}
+	public void shootAndMove(double distance, double angle, double shootAngle, double frameGap, double speed){
+		movements.add(new ShootAndMove(handler, distance, this, angle, shootAngle, frameGap, speed));
 	}
 	public ArrayList<AI> getMovements() {
 		return movements;

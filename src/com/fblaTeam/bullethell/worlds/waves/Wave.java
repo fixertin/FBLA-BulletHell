@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.worlds.waves;
+package com.fblaTeam.bullethell.worlds.waves;
 
 
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.worlds.World;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.worlds.World;
 
 public abstract class Wave {
 	protected Handler handler;
@@ -34,6 +34,9 @@ public abstract class Wave {
 	
 	protected Enemy getEnemy(int i){
 		return world.getEnemies().get(i);
+	}
+	protected void addEnemy(Enemy e){
+		handler.getWorld().getEnemies().add(e);
 	}
 	
 	

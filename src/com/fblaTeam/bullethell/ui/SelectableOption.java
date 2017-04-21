@@ -1,11 +1,11 @@
-package com.alexnaustin.bullethell.ui;
+package com.fblaTeam.bullethell.ui;
 
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.states.MenuState;
-import com.alexnaustin.bullethell.states.State;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.states.MenuState;
+import com.fblaTeam.bullethell.states.State;
 
 public class SelectableOption {
 	public String sentence;
@@ -29,8 +29,6 @@ public class SelectableOption {
 			handler.getGame().resetGame();
 		} else if(isActivated && goToState != null)
 			State.setState(goToState);
-		else if(isActivated)
-			System.out.println("is null bro");
 	}
 	public void render(Graphics g){
 		if(isSelected)

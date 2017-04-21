@@ -1,7 +1,7 @@
-package com.alexnaustin.bullethell.AI;
+package com.fblaTeam.bullethell.AI;
 
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class MoveToEdge extends AI{
 	private double angle;

@@ -1,10 +1,10 @@
-package com.alexnaustin.bullethell.creatures;
+package com.fblaTeam.bullethell.creatures;
 
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.entities.Creature;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.entities.Creature;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class LargeBullet extends Bullet{
 
@@ -15,7 +15,7 @@ public class LargeBullet extends Bullet{
 		vely = getYSpeed();
 		hitbox.setBounds((int)x+27, (int)y+26, 12, 13);
 	}
-	public LargeBullet(Handler handler, double x, double y, double angle, Creature shooter, int speed) {
+	public LargeBullet(Handler handler, double x, double y, double angle, Creature shooter, double speed) {
 		super(handler, x, y, angle, shooter);
 		this.speed = speed;
 		velx = getXSpeed();

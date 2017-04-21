@@ -1,8 +1,8 @@
+aaa 1500
+usr 1500
 fix 1500
 fix 1400
-fix 800
-bjo 720
-jkl 720
-lmn 720
-aaa 720
-gov 720
+fix 1400
+aaa 1400
+aaa 1400
+aaa 1300

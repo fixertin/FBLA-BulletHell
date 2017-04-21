@@ -2,21 +2,38 @@ package com.fblaTeam.bullethell.AI;
 
 import java.awt.Rectangle;
 
+import com.fblaTeam.bullethell.AI.bulletPatterns.ShootBullet;
 import com.fblaTeam.bullethell.entities.Enemy;
 import com.fblaTeam.bullethell.main.Handler;
 
-public class MoveTo extends AI {
+public class ShootAndMove extends AI{
 	private double destX;
 	private double destY;
 	private double distance;
-	private double velx, vely;
+	private double velx, vely, speed, frameGap;
 	public double angle;
 	public double originalAngle;
+	public int currentFrame;
+	public ShootBullet pattern;
 
-	public MoveTo(Handler handler, double distance, Enemy e, double angle) {
+	public ShootAndMove(Handler handler, double distance, Enemy e, double angle, double shootAngle, double frameGap) {
 		super(handler, e);
 		this.distance = distance;
 		this.angle = angle;
+		this.frameGap = frameGap;
+		speed = e.getSpeed();
+		
+		pattern = new ShootBullet(handler, e, shootAngle);
+		
+		setValues();
+	}
+	public ShootAndMove(Handler handler, double distance, Enemy e, double angle, double shootAngle, double frameGap, double speed) {
+		super(handler, e);
+		this.distance = distance;
+		this.angle = angle;
+		this.frameGap = frameGap;
+		this.speed = speed;
+		pattern = new ShootBullet(handler, e, shootAngle);
 		setValues();
 	}
 	
@@ -24,8 +41,8 @@ public class MoveTo extends AI {
 		destX = (Math.cos(Math.toRadians(this.angle)) * distance)+ (e.getX() + 32-8);
 		destY = (Math.sin(Math.toRadians(this.angle)) * distance)+ (e.getY() + 32-8);
 		e.test.setBounds((int)destX, (int)destY, 16, 16);
-		velx = handler.getXSpeed(angle, 3);
-		vely = handler.getYSpeed(angle, 3);
+		velx = handler.getXSpeed(angle, speed);
+		vely = handler.getYSpeed(angle, speed);
 		hitbox = new Rectangle();
 		setBounds();
 	}
@@ -45,9 +62,14 @@ public class MoveTo extends AI {
 	public void tick() {
 		setBounds();
 		if(isRunning()){
-			if(!isAtDestination())
+			if(!isAtDestination()){
 				moveEnemy();
-			else{
+				if(currentFrame >= frameGap){
+					pattern.fillBullets();
+					currentFrame = 0;
+				}else
+					currentFrame++;
+			}else{
 				succeed();
 				e.setVelx(0);
 				e.setVely(0);
@@ -66,5 +88,4 @@ public class MoveTo extends AI {
 			return false;
 		
 	}
-
 }

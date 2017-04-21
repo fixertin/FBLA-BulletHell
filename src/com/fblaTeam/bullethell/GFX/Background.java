@@ -1,11 +1,11 @@
-package com.alexnaustin.bullethell.GFX;
+package com.fblaTeam.bullethell.GFX;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.alexnaustin.bullethell.clock.Timer;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class Background {
 	public Timer timer = new Timer(0.05);

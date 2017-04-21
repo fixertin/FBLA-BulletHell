@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.tiles;
+package com.fblaTeam.bullethell.tiles;
 
 public class Letter {
 	private char character;

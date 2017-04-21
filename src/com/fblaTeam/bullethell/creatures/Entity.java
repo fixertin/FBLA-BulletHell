@@ -1,8 +1,8 @@
-package com.alexnaustin.bullethell.creatures;
+package com.fblaTeam.bullethell.creatures;
 
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.main.Handler;
 
 
 

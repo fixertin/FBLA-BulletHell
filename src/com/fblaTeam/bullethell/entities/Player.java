@@ -1,27 +1,28 @@
-package com.alexnaustin.bullethell.entities;
+package com.fblaTeam.bullethell.entities;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.GFX.animation.Animation;
-import com.alexnaustin.bullethell.clock.Timer;
-import com.alexnaustin.bullethell.creatures.BasicBullet;
-import com.alexnaustin.bullethell.creatures.Bullet;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.sounds.AudioPlayer;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.GFX.animation.Animation;
+import com.fblaTeam.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.creatures.BasicBullet;
+import com.fblaTeam.bullethell.creatures.Bullet;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.sounds.AudioPlayer;
 
 public class Player extends Creature {
 	private Timer timer, invinTimer;
 	private int spawnX, spawnY;
 	public Animation explosionAnimation, respawnAnimation;
-	public boolean isDead, isRespawning, isInvincible, isRespawnable = true;
+	public boolean isDead, isRespawning, isInvincible, isRespawnable = true, hasRespawned;
 	
 	
 	public Player(Handler handler, double x, double y) {
 		super(handler, x, y);
 		timer = new Timer(0.05);
-		invinTimer = new Timer(3);
+		invinTimer = new Timer(3.7);
+		invinTimer.reset();
 		hitbox = new Rectangle();
 		spawnX = handler.getWidth() /2 -48;
 		spawnY = handler.getHeight() - 98;
@@ -60,6 +61,7 @@ public class Player extends Creature {
 	
 	@Override
 	public void tick() {
+		
 		if(isDead && explosionAnimation.getFrame() == 1)
 			AudioPlayer.getSound("explosion").play();
 		if(isDead){
@@ -81,13 +83,17 @@ public class Player extends Creature {
 		if(respawnAnimation.isFinished && isRespawnable){
 			isDead = false;
 			isRespawning = false;
+			hasRespawned = true;
 			explosionAnimation = new Animation(1, Assets.explosion, 1);
 			respawnAnimation = new Animation(3, Assets.playerRespawn, 1);
 		}
-		if(isInvincible && (!isDead && !isRespawning) && isRespawnable)
+		if(isInvincible && hasRespawned){
 			invinTimer.tick();
+			System.out.println("test");
+		}
 		if(invinTimer.hasReachedTime()){
 			isInvincible = false;
+			hasRespawned = false;
 			invinTimer.reset();
 		}
 		

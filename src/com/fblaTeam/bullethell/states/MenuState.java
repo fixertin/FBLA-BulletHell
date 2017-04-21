@@ -1,12 +1,13 @@
-package com.alexnaustin.bullethell.states;
+package com.fblaTeam.bullethell.states;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.GFX.Background;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.ui.SelectableOption;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.GFX.Background;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.sounds.AudioPlayer;
+import com.fblaTeam.bullethell.ui.SelectableOption;
 
 public class MenuState extends State{
 	public SelectableOption[] buttons = new SelectableOption[3];
@@ -35,16 +36,21 @@ public class MenuState extends State{
 			buttons[i].tick();
 		}
 		if((handler.getKeyManager().keyJustPressed(KeyEvent.VK_W) || handler.getKeyManager().keyJustPressed(KeyEvent.VK_UP)) && selectedIndex != 0){
+			AudioPlayer.getSound("select").play();
 			buttons[selectedIndex].isSelected = false;
 			selectedIndex--;
 			buttons[selectedIndex].isSelected = true;
 		}
 		if((handler.getKeyManager().keyJustPressed(KeyEvent.VK_S) || handler.getKeyManager().keyJustPressed(KeyEvent.VK_DOWN)) && selectedIndex < buttons.length-1){
+			AudioPlayer.getSound("select").play();
 			buttons[selectedIndex].isSelected = false;
 			selectedIndex++;
 			buttons[selectedIndex].isSelected = true;
 		}
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_ENTER)){
+			AudioPlayer.getSound("select").play();
+			if(selectedIndex == 1)
+				handler.getGame().optionsState.init();
 			buttons[selectedIndex].isActivated = true;
 		}
 	}

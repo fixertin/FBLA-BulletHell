@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.GFX;
+package com.fblaTeam.bullethell.GFX;
 
 import java.awt.Canvas;
 import java.awt.Dimension;

@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.sounds;
+package com.fblaTeam.bullethell.sounds;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +15,8 @@ public class AudioPlayer {
 		try {
 			soundMap.put("shoot", new Sound("/res/sounds/shoot.ogg"));
 			soundMap.put("explosion", new Sound("/res/sounds/explosion.ogg"));
+			soundMap.put("select", new Sound("/res/sounds/select.ogg"));
+			
 			musicMap.put("test", new Music("/res/sounds/test.ogg"));
 		} catch (SlickException e) {
 			e.printStackTrace();

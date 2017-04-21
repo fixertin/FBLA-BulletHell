@@ -1,22 +1,22 @@
-package com.alexnaustin.bullethell.worlds;
+package com.fblaTeam.bullethell.worlds;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.GFX.Background;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.entities.Player;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.sounds.AudioPlayer;
-import com.alexnaustin.bullethell.tools.HighscoreReader;
-import com.alexnaustin.bullethell.worlds.waves.Wave;
-import com.alexnaustin.bullethell.worlds.waves.Wave1World1;
-import com.alexnaustin.bullethell.worlds.waves.Wave2World1;
-import com.alexnaustin.bullethell.worlds.waves.Wave3World1;
-import com.alexnaustin.bullethell.worlds.waves.Wave4World1;
-import com.alexnaustin.bullethell.worlds.waves.Wave5World1;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.GFX.Background;
+import com.fblaTeam.bullethell.entities.Player;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.sounds.AudioPlayer;
+import com.fblaTeam.bullethell.tools.HighscoreReader;
+import com.fblaTeam.bullethell.worlds.waves.Wave;
+import com.fblaTeam.bullethell.worlds.waves.Wave1World1;
+import com.fblaTeam.bullethell.worlds.waves.Wave2World1;
+import com.fblaTeam.bullethell.worlds.waves.Wave3World1;
+import com.fblaTeam.bullethell.worlds.waves.Wave4World1;
+import com.fblaTeam.bullethell.worlds.waves.Wave5World1;
+import com.fblaTeam.bullethell.worlds.waves.world2.Wave1World2;
 
 public class World1 extends World{
 	public int waveIndex;
@@ -52,7 +52,7 @@ public class World1 extends World{
 	public void init() {
 		p = new Player(handler, handler.getWidth()/2 -32, 300);
 		worldName = "world 1";
-		waves = new Wave[6];
+		waves = new Wave[7];
 		highScores = HighscoreReader.getLines("highscores/world1.txt");
 		highScoreAmount = highScores.size();
 		for(int i=0; i<highScoreAmount; i++)
@@ -76,6 +76,7 @@ public class World1 extends World{
 		waves[3] = new Wave2World1(handler, this);
 		waves[4] = new Wave4World1(handler, this);
 		waves[5] = new Wave5World1(handler, this);
+		waves[6] = new Wave1World1(handler, this);
 	}
 	
 	public void checkWaveInit(){
@@ -129,50 +130,5 @@ public class World1 extends World{
 			Assets.drawSentence(handler.getWidth()/2-(message.length()*8), handler.getHeight()/2, message, g);
 		else if(framegap >= 10)
 			Assets.drawSentence(handler.getWidth()/2-(message.length()*8), handler.getHeight()/2, "press enter to return", g);
-		
 	}
-	
-	//cleanup functions
-	public void tickBullets(){
-		for(int i=0; i<bullets.size(); i++){
-			bullets.get(i).tick();
-			if(bullets.get(i).isAtEdge())
-				bullets.remove(i);
-		}
-	}
-	public void tickEnemies(){
-		for(int i=0; i<enemies.size(); i++){
-			if(playerLives > 0){
-				for(int ii=0; ii<bullets.size(); ii++){
-					if(bullets.get(ii).getHitbox().intersects(enemies.get(i).getHitbox()) && (bullets.get(ii).getShooter() instanceof Player) && !enemies.get(i).isDead()){
-						enemies.get(i).setHealth(enemies.get(i).getHealth() - 1);
-						bullets.remove(ii);
-						if(enemies.get(i).getHealth() <= 0){
-							enemies.get(i).setDead(true);
-							playerScore += enemies.get(i).getScoreReward();
-						}
-					}
-					if(ii<bullets.size() && bullets.get(ii).getHitbox().intersects(p.getHitbox()) && (bullets.get(ii).getShooter() instanceof Enemy) ){
-						p.isDead = true;
-						bullets.remove(ii);
-						if(playerLives > 0){
-							playerLives -= 1;
-						}
-					}
-				}
-				
-				if(enemies.get(i).isRemoved())
-					enemies.remove(i);
-				else
-					enemies.get(i).tick();
-			} else if(!enemies.get(i).isRemoved() && enemies.get(i).isDead())
-				enemies.get(i).tick();
-			else if(enemies.get(i).isRemoved())
-				enemies.remove(i);
-			
-		}
-	}
-	
-
-
 }

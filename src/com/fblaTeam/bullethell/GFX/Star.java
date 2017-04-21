@@ -1,10 +1,10 @@
-package com.alexnaustin.bullethell.GFX;
+package com.fblaTeam.bullethell.GFX;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.creatures.Entity;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.creatures.Entity;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class Star extends Entity{
 	public int d;

@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.GFX;
+package com.fblaTeam.bullethell.GFX;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Assets {
 	public static BufferedImage player, pBullet, eBullet, enemy, ui, select, selectedLetter, lifeIcon, titleScreen, largeBullet, largeBulletChild,
-								smallShipB, smallShipBr, smallShipP, smallShipR, tankShip;
+								smallShipB, smallShipBr, smallShipP, smallShipR, tankShip, smallShip2;
 	public static BufferedImage[] pBulletA, eBulletA, explosion, playerRespawn;
 	public static HashMap<Character, BufferedImage> letterMap = new HashMap<Character, BufferedImage>();
 	public static HashMap<Character, BufferedImage> letterMap32 = new HashMap<Character, BufferedImage>();
@@ -53,6 +53,7 @@ public class Assets {
 		smallShipBr = sheet.crop(4, 3, WIDTH, HEIGHT);
 		smallShipB = sheet.crop(5, 3, WIDTH, HEIGHT);
 		smallShipP = sheet.crop(3, 3, WIDTH, HEIGHT);
+		smallShip2 = sheet.crop(6, 3, WIDTH, HEIGHT);
 		
 		//eBullet = sheet.crop(0, 5, WIDTH, HEIGHT);
 		largeBullet = sheet.crop(3, 4, WIDTH, HEIGHT);

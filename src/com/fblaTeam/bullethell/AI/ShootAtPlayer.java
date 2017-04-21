@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.AI;
+package com.fblaTeam.bullethell.AI;
 
-import com.alexnaustin.bullethell.AI.bulletPatterns.ShootAtPlayerPattern;
-import com.alexnaustin.bullethell.clock.Timer;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.AI.bulletPatterns.ShootAtPlayerPattern;
+import com.fblaTeam.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class ShootAtPlayer extends AI{
 	private int amount, amountShot;

@@ -1,8 +1,8 @@
-package com.alexnaustin.bullethell.AI;
+package com.fblaTeam.bullethell.AI;
 
-import com.alexnaustin.bullethell.AI.bulletPatterns.ShootBullet;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.AI.bulletPatterns.ShootBullet;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class InfinShootStraight extends AI{
 	public boolean isMoving;

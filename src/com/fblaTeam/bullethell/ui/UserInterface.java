@@ -1,9 +1,9 @@
-package com.alexnaustin.bullethell.ui;
+package com.fblaTeam.bullethell.ui;
 
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class UserInterface {
 	public Handler handler;

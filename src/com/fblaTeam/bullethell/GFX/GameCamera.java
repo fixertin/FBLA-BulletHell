@@ -1,7 +1,7 @@
-package com.alexnaustin.bullethell.GFX;
+package com.fblaTeam.bullethell.GFX;
 
-import com.alexnaustin.bullethell.creatures.Entity;
-import com.alexnaustin.bullethell.main.Game;
+import com.fblaTeam.bullethell.creatures.Entity;
+import com.fblaTeam.bullethell.main.Game;
 
 public class GameCamera {
 	private double xOffset, yOffset;

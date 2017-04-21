@@ -1,11 +1,11 @@
-package com.alexnaustin.bullethell.states;
+package com.fblaTeam.bullethell.states;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.ui.SelectableOption;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.ui.SelectableOption;
 
 public class HelpState extends State{
 	private SelectableOption back = new SelectableOption(handler, ">back", handler.getMenuState(), handler.getWidth()-60*5, handler.getHeight()-32);

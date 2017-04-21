@@ -1,11 +1,11 @@
-package com.alexnaustin.bullethell.worlds;
+package com.fblaTeam.bullethell.worlds;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.tools.HighscoreReader;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.tools.HighscoreReader;
 
 public class HighscoreWorld extends World{
 	public String message = "press enter to continue";

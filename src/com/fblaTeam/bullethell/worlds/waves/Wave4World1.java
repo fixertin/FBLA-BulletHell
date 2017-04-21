@@ -1,8 +1,8 @@
-package com.alexnaustin.bullethell.worlds.waves;
+package com.fblaTeam.bullethell.worlds.waves;
 
-import com.alexnaustin.bullethell.entities.enemies.SmallEnemyBlue;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.worlds.World;
+import com.fblaTeam.bullethell.entities.enemies.SmallEnemyBlue;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.worlds.World;
 
 public class Wave4World1 extends Wave{
 

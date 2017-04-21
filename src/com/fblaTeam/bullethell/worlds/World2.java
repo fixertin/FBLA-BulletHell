@@ -1,19 +1,21 @@
-package com.alexnaustin.bullethell.worlds;
+package com.fblaTeam.bullethell.worlds;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.GFX.Background;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.entities.Player;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.sounds.AudioPlayer;
-import com.alexnaustin.bullethell.tools.HighscoreReader;
-import com.alexnaustin.bullethell.worlds.waves.Wave;
-import com.alexnaustin.bullethell.worlds.waves.Wave1World1;
-import com.alexnaustin.bullethell.worlds.waves.Wave2World1;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.GFX.Background;
+import com.fblaTeam.bullethell.entities.Player;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.sounds.AudioPlayer;
+import com.fblaTeam.bullethell.tools.HighscoreReader;
+import com.fblaTeam.bullethell.worlds.waves.Wave;
+import com.fblaTeam.bullethell.worlds.waves.Wave2World1;
+import com.fblaTeam.bullethell.worlds.waves.world2.Wave1World2;
+import com.fblaTeam.bullethell.worlds.waves.world2.Wave2World2;
+import com.fblaTeam.bullethell.worlds.waves.world2.Wave3World2;
+import com.fblaTeam.bullethell.worlds.waves.world2.Wave4World2;
 
 public class World2 extends World{
 	public int waveIndex;
@@ -49,7 +51,7 @@ public class World2 extends World{
 	public void init() {
 		p = new Player(handler, 100, 300);
 		worldName = "world 1";
-		waves = new Wave[2];
+		waves = new Wave[8];
 		highScores = HighscoreReader.getLines("highscores/world2.txt");
 		highScoreAmount = highScores.size();
 		for(int i=0; i<highScoreAmount; i++)
@@ -58,6 +60,16 @@ public class World2 extends World{
 			System.out.println(highScores.get(i));
 		fillWaves();
 		background = new Background(handler);
+	}
+	public void fillWaves(){
+		waves[0] = new Wave1World2(handler, this);
+		waves[1] = new Wave2World2(handler, this);
+		waves[2] = new Wave3World2(handler, this);
+		waves[3] = new Wave1World2(handler, this);
+		waves[4] = new Wave2World1(handler, this);
+		waves[5] = new Wave4World2(handler, this);
+		waves[6] = new Wave1World2(handler, this);
+		waves[7] = new Wave3World2(handler, this);
 	}
 
 	@Override
@@ -112,10 +124,6 @@ public class World2 extends World{
 		scores[index] = new Score(temp[0], Integer.parseInt(temp[1]));
 	}
 	
-	public void fillWaves(){
-		waves[0] = new Wave1World1(handler, this);
-		waves[1] = new Wave2World1(handler, this);
-	}
 	
 	public void checkWaveInit(){
 		if(waveIndex+1 > waves.length){
@@ -126,44 +134,5 @@ public class World2 extends World{
 		waves[waveIndex].addCommands();
 		
 	}
-	
-	//cleanup functions
-		public void tickBullets(){
-			for(int i=0; i<bullets.size(); i++){
-				bullets.get(i).tick();
-				if(bullets.get(i).isAtEdge())
-					bullets.remove(i);
-			}
-		}
-		public void tickEnemies(){
-			for(int i=0; i<enemies.size(); i++){
-				if(playerLives > 0){
-					for(int ii=0; ii<bullets.size(); ii++){
-						if(bullets.get(ii).getHitbox().intersects(enemies.get(i).getHitbox()) && (bullets.get(ii).getShooter() instanceof Player) && !enemies.get(i).isDead()){
-							enemies.get(i).setHealth(enemies.get(i).getHealth() - 1);
-							bullets.remove(ii);
-							if(enemies.get(i).getHealth() <= 0){
-								enemies.get(i).setDead(true);
-								playerScore += enemies.get(i).getScoreReward();
-							}
-						}
-						if(ii<bullets.size() && bullets.get(ii).getHitbox().intersects(p.getHitbox()) && (bullets.get(ii).getShooter() instanceof Enemy) ){
-							p.isDead = true;
-							bullets.remove(ii);
-							if(playerLives > 0){
-								playerLives -= 1;
-							}
-						}
-					}
-					if(enemies.get(i).isRemoved())
-						enemies.remove(i);
-					else
-						enemies.get(i).tick();
-				} else if(!enemies.get(i).isRemoved() && enemies.get(i).isDead())
-					enemies.get(i).tick();
-				else if(enemies.get(i).isRemoved())
-					enemies.remove(i);				
-			}
-		}
 
 }

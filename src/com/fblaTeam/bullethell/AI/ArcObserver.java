@@ -1,6 +1,6 @@
-package com.alexnaustin.bullethell.AI;
+package com.fblaTeam.bullethell.AI;
 
-import com.alexnaustin.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.entities.Enemy;
 
 public class ArcObserver {
 	

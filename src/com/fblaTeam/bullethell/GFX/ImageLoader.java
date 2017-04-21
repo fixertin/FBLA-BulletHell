@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.GFX;
+package com.fblaTeam.bullethell.GFX;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

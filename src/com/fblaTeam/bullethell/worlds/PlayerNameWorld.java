@@ -1,12 +1,13 @@
-package com.alexnaustin.bullethell.worlds;
+package com.fblaTeam.bullethell.worlds;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.clock.Timer;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.tiles.Letter;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.sounds.AudioPlayer;
+import com.fblaTeam.bullethell.tiles.Letter;
 
 public class PlayerNameWorld extends World{
 	public Character[] playerName = new Character[3];
@@ -41,16 +42,25 @@ public class PlayerNameWorld extends World{
 			}
 		}
 		
-		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_A) && selectedX > 0)
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_A) && selectedX > 0){
 			selectedX--;
-		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_D) && selectedX < 7 && (characters[selectedX+1][selectedY] != null))
+			AudioPlayer.getSound("select").play();
+		}
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_D) && selectedX < 7 && (characters[selectedX+1][selectedY] != null)){
 			selectedX++;
-		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_S) && selectedY < 3 && (characters[selectedX][selectedY+1] != null))
+			AudioPlayer.getSound("select").play();
+		}
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_S) && selectedY < 3 && (characters[selectedX][selectedY+1] != null)){
 			selectedY++;
-		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_W) && selectedY > 0)
+			AudioPlayer.getSound("select").play();
+		}
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_W) && selectedY > 0){
 			selectedY--;
+			AudioPlayer.getSound("select").play();
+		}
 		playerNameChecker();
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_ENTER) && playerName[playerName.length-1] != null){
+			AudioPlayer.getSound("select").play();
 			String temp = turnNameToString();
 			handler.getGameState().getHighScoreWorld().playerName = temp;
 			handler.getGameState().getHighScoreWorld().checkAndAddHighscore();

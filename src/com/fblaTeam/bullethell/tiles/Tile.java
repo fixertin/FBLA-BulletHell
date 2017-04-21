@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.tiles;
+package com.fblaTeam.bullethell.tiles;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

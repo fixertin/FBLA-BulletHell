@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.main;
+package com.fblaTeam.bullethell.main;
 
 
 public class Launcher {

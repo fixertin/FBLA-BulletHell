@@ -1,8 +1,8 @@
-package com.alexnaustin.bullethell.AI;
+package com.fblaTeam.bullethell.AI;
 
-import com.alexnaustin.bullethell.clock.Timer;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.main.Handler;
+import com.fblaTeam.bullethell.clock.Timer;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.main.Handler;
 
 public class Wait extends AI{
 	private Timer timer;

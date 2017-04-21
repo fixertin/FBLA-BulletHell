@@ -1,4 +1,4 @@
-package com.alexnaustin.bullethell.GFX.animation;
+package com.fblaTeam.bullethell.GFX.animation;
 
 import java.awt.image.BufferedImage;
 

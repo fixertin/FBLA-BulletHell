@@ -1,15 +1,15 @@
-package com.alexnaustin.bullethell.states;
+package com.fblaTeam.bullethell.states;
 
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.ui.UserInterface;
-import com.alexnaustin.bullethell.worlds.HighscoreWorld;
-import com.alexnaustin.bullethell.worlds.PlayerNameWorld;
-import com.alexnaustin.bullethell.worlds.Score;
-import com.alexnaustin.bullethell.worlds.World;
-import com.alexnaustin.bullethell.worlds.World1;
-import com.alexnaustin.bullethell.worlds.World2;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.ui.UserInterface;
+import com.fblaTeam.bullethell.worlds.HighscoreWorld;
+import com.fblaTeam.bullethell.worlds.PlayerNameWorld;
+import com.fblaTeam.bullethell.worlds.Score;
+import com.fblaTeam.bullethell.worlds.World;
+import com.fblaTeam.bullethell.worlds.World1;
+import com.fblaTeam.bullethell.worlds.World2;
 
 
 
@@ -21,8 +21,8 @@ public class GameState extends State{
 	
 	public GameState(Handler handler){
 		super(handler);
-		worlds[0] = new World1(handler);
-		worlds[1] = new World2(handler);
+		worlds[0] = new World2(handler);
+		worlds[1] = new World1(handler);
 		worlds[2] = new HighscoreWorld(handler);
 		worlds[3] = new PlayerNameWorld(handler);
 		handler.setWorld(worlds[0]);

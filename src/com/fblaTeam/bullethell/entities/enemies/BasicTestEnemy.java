@@ -1,15 +1,14 @@
-package com.alexnaustin.bullethell.entities.enemies;
+package com.fblaTeam.bullethell.entities.enemies;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
-import com.alexnaustin.bullethell.AI.ArcObserver;
-import com.alexnaustin.bullethell.AI.MoveArc;
-import com.alexnaustin.bullethell.GFX.Assets;
-import com.alexnaustin.bullethell.GFX.animation.Animation;
-import com.alexnaustin.bullethell.entities.Enemy;
-import com.alexnaustin.bullethell.main.Handler;
-import com.alexnaustin.bullethell.sounds.AudioPlayer;
+import com.fblaTeam.bullethell.AI.ArcObserver;
+import com.fblaTeam.bullethell.AI.MoveArc;
+import com.fblaTeam.bullethell.GFX.Assets;
+import com.fblaTeam.bullethell.GFX.animation.Animation;
+import com.fblaTeam.bullethell.entities.Enemy;
+import com.fblaTeam.bullethell.main.Handler;
+import com.fblaTeam.bullethell.sounds.AudioPlayer;
 
 public class BasicTestEnemy extends Enemy{
 	public int index = 0;
