@@ -1,8 +1,8 @@
-fix 1800
-fix 1700
 fix 1700
 aaa 1500
 usr 1500
 fix 1500
 fix 1400
 fix 1400
+aaa 1400
+aaa 1400

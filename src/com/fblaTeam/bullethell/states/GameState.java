@@ -10,21 +10,23 @@ import com.fblaTeam.bullethell.worlds.Score;
 import com.fblaTeam.bullethell.worlds.World;
 import com.fblaTeam.bullethell.worlds.World1;
 import com.fblaTeam.bullethell.worlds.World2;
+import com.fblaTeam.bullethell.worlds.World3;
 
 
 
 public class GameState extends State{
 	public int currentWorldIndex, playerLives;
 	public String playerName;
-	public World[] worlds = new World[4];
+	public World[] worlds = new World[5];
 	private UserInterface ui = new UserInterface(handler);
 	
 	public GameState(Handler handler){
 		super(handler);
-		worlds[0] = new World2(handler);
-		worlds[1] = new World1(handler);
-		worlds[2] = new HighscoreWorld(handler);
-		worlds[3] = new PlayerNameWorld(handler);
+		worlds[0] = new World1(handler);
+		worlds[1] = new World2(handler);
+		worlds[2] = new World3(handler);
+		worlds[3] = new HighscoreWorld(handler);
+		worlds[4] = new PlayerNameWorld(handler);
 		handler.setWorld(worlds[0]);
 		
 		//handler.getCamera().move(player.getX(), player.getY());

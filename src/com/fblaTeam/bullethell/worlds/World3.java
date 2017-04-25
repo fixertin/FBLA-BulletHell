@@ -12,13 +12,15 @@ import com.fblaTeam.bullethell.sounds.AudioPlayer;
 import com.fblaTeam.bullethell.tools.HighscoreReader;
 import com.fblaTeam.bullethell.worlds.waves.Wave;
 import com.fblaTeam.bullethell.worlds.waves.Wave2World1;
+import com.fblaTeam.bullethell.worlds.waves.Wave3World1;
 import com.fblaTeam.bullethell.worlds.waves.world2.Wave1World2;
 import com.fblaTeam.bullethell.worlds.waves.world2.Wave2World2;
 import com.fblaTeam.bullethell.worlds.waves.world2.Wave3World2;
 import com.fblaTeam.bullethell.worlds.waves.world2.Wave4World2;
 import com.fblaTeam.bullethell.worlds.waves.world2.Wave5World2;
+import com.fblaTeam.bullethell.worlds.waves.world3.Wave1World3;
 
-public class World2 extends World{
+public class World3 extends World{
 	public int waveIndex;
 	public boolean gameWon, highScoreChange;
 	public ArrayList<String> highScores;
@@ -28,9 +30,9 @@ public class World2 extends World{
 	public Background background;
 	
 
-	public World2(Handler handler) {
+	public World3(Handler handler) {
 		super(handler);
-		highScoreFilePath = "highscores/world2.txt";
+		highScoreFilePath = "highscores/world3.txt";
 		playerLives = 5;
 		init();
 	}
@@ -51,9 +53,9 @@ public class World2 extends World{
 	@Override
 	public void init() {
 		p = new Player(handler, 100, 300);
-		worldName = "world 2";
-		waves = new Wave[9];
-		highScores = HighscoreReader.getLines("highscores/world2.txt");
+		worldName = "world 3";
+		waves = new Wave[5];
+		highScores = HighscoreReader.getLines("highscores/world3.txt");
 		highScoreAmount = highScores.size();
 		for(int i=0; i<highScoreAmount; i++)
 			fillHighscoreMap(i);
@@ -63,15 +65,11 @@ public class World2 extends World{
 		background = new Background(handler);
 	}
 	public void fillWaves(){
-		waves[0] = new Wave1World2(handler, this);
-		waves[1] = new Wave2World2(handler, this);
-		waves[2] = new Wave3World2(handler, this);
+		waves[0] = new Wave3World1(handler, this);
+		waves[1] = new Wave1World3(handler, this);
+		waves[2] = new Wave4World2(handler, this);
 		waves[3] = new Wave1World2(handler, this);
-		waves[4] = new Wave2World1(handler, this);
-		waves[5] = new Wave4World2(handler, this);
-		waves[6] = new Wave1World2(handler, this);
-		waves[7] = new Wave3World2(handler, this);
-		waves[8] = new Wave5World2(handler, this);
+		waves[4] = new Wave2World2(handler, this);
 	}
 
 	@Override
@@ -136,5 +134,4 @@ public class World2 extends World{
 		waves[waveIndex].addCommands();
 		
 	}
-
 }

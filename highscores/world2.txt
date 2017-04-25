@@ -3,6 +3,6 @@ ted 3900
 ted 3900
 ted 3900
 ted 2800
-fix 700
-aaa 500
-aaa 400
+fix 2500
+fix 2500
+fix 2500
